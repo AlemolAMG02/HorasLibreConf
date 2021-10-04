@@ -28,19 +28,22 @@ public class RojoYNegro extends Mesa {
 		return color;
 	}
 		
-	public void jugar(Jugador j1, float apuesta) {
+	public boolean jugar(Jugador j1, float apuesta) {
+		boolean victoria = false;
 		if(j1.getCash() < apuesta) {
 			System.out.println("El jugador no puede apostar " 
-					+ apuesta + "€");
+					+ apuesta + "€");			
 		} else {
 			int color = colorAleatorio();
 			int colorJu = colorJugador();
 			
 			if(color != colorJu) {
 				j1.setCash(j1.getCash() - apuesta);
+				victoria = false;
 			} else
 				j1.setCash(j1.getCash() + (apuesta*2));
 		}
+		return victoria;
 	}
 	
 	
