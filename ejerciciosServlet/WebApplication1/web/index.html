@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Datos usuarios</div>
+        <br>
+        <form action="s1" method="post">
+            
+            Nombre de Usuario: <input type="text" name="usuario"/><br>
+            Contraseña: <input type="password" name="pass"/><br>
+            
+            Sexo: <input type="radio" name="sexo" value="H"/> Hombre
+            <input type="radio" name="sexo" value="M"> Mujer<br><br>
+            
+            <input type="checkbox" name="fruta" value="Manzana"> Manzana
+            <input type="checkbox" name="fruta" value="Naranja"> Naranja
+            <input type="checkbox" name="fruta" value="Sandia"> Sandia <br><br>
+            
+            ciudad: <select id="ciudad" name="ciudad">
+                <option value="Lucena">Lucena</option>
+                <option value="Cabra">Cabra</option>
+                <option value="Aguilar">Aguilar</option>
+            </select>
+            
+            <br><br>Comentario:<br> 
+            <textarea id="text" name="comentario" rows="10" cols="30"></textarea>
+            
+            <br><br><br>
+            <input type="submit" value="Enviar">
+            <input type="reset" name="Limpiar">
+        </form>
+        
+        
+        
+    </body>
+</html>
