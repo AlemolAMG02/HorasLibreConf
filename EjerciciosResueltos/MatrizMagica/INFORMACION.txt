@@ -1,0 +1,2 @@
+El ejercicio consta de hacer una matriz mágica en java y verla a través del navegador gracias a los servlet.
+El ejercicio consta de tres archivos principales, la clase Matriz Mágica (mm.java), el servlet (s2.java) y el archivo HTML para pedir el primer formulario.
