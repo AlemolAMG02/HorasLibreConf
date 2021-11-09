@@ -31,14 +31,11 @@ public class Usuario {
         this.passwd = passwd;
         this.administrador = administrador;
     }
-    
-    
 
     public String getNombre() {
         return nombre;
     }
 
-    
     public String getPasswd() {
         return passwd;
     }
@@ -50,6 +47,13 @@ public class Usuario {
     public void setPasswd(String passwd) {
         this.passwd = passwd;
     }
-    
-    
+
+    public boolean isAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(boolean administrador) {
+        this.administrador = administrador;
+    }
+
 }
