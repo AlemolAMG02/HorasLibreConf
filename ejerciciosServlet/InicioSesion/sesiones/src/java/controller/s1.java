@@ -4,6 +4,7 @@
  */
 package controller;
 
+import java.io.Console;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -42,38 +43,42 @@ public class s1 extends HttpServlet {
 
             ListaUsuarios usuarios = (ListaUsuarios) request.getAttribute("usuarios");
             if (usuarios != null) { // Lista usuarios ya existe
+
                 for (Usuario user : usuarios) {
                     if (nombre.equals(user.getNombre()) && pass.equals(user.getPasswd())) {
-                        miSesion.setAttribute("logueado", true);
-                        miSesion.setAttribute("nomUsu", nombre);
+                        miSesion.setAttribute("logueado", "true");
+                        miSesion.setAttribute("userIni", user);
                         miSesion.setAttribute("esAdmin", user.isAdministrador());
                         break;
                     } else {
-                        miSesion.setAttribute("logueado", false);
+                        miSesion.setAttribute("logueado", "false");
                         miSesion.setAttribute("userIni", user);
                         miSesion.setAttribute("esAdmin", user.isAdministrador());
                     }
                 }
-                response.sendRedirect("index.jsp");
+                // response.sendRedirect("index.jsp");
             } else {
                 usuarios = new ListaUsuarios(); // Se crea la lista de usuarios
                 for (Usuario user : usuarios) {
                     if (nombre.equals(user.getNombre()) && pass.equals(user.getPasswd())) {
-                        miSesion.setAttribute("logueado", true);
-                        miSesion.setAttribute("nombreUsu", nombre);
+                        miSesion.setAttribute("logueado", "true");
+                        miSesion.setAttribute("userIni", user);
+                        miSesion.setAttribute("esAdmin", user.isAdministrador());
                         break;
                     } else {
-                        miSesion.setAttribute("logueado", false);
+                        miSesion.setAttribute("logueado", "false");
                         miSesion.setAttribute("userIni", user);
+                        miSesion.setAttribute("esAdmin", user.isAdministrador());
                     }
                 }
-                response.sendRedirect("index.jsp");
-
+                miSesion.setAttribute("usuarios", usuarios);
             }
+            response.sendRedirect("index.jsp");
         }
     }
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the sign on the left to edit the code.">
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the
+    // sign on the left to edit the code.">
     /**
      * Handles the HTTP <code>GET</code> method.
      *

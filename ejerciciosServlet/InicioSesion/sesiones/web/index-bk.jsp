@@ -16,18 +16,18 @@
     <body>
         <h1>Hello World!</h1>
         <%
-            String formu = "formulario.jsp";
-            Usuario userIni = (Usuario) session.getAttribute("userIni");
             String logueado =(String)session.getAttribute("logueado");  //La primera vez dará null, las siguientes si existirá
+            String formu = "formulario.jsp";
             //ListaUsuarios listUsu = (ListaUsuarios) session.getAttribute("usuarios");   
+            //Usuario userIni = (Usuario) session.getAttribute("userIni");
             Boolean esAdmin = (Boolean) session.getAttribute("esAdmin");
             
             if(session.isNew() || logueado == null){
                 response.sendRedirect(formu);
             } else {
-                if(logueado == "true"){
+                if(logueado){
                     
-                    if(esAdmin == true){
+                    if(logueado == true){
                         out.println("Eres Admin");
                     %>
                     
