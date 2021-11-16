@@ -59,6 +59,7 @@ public class s1 extends HttpServlet {
                 // response.sendRedirect("index.jsp");
             } else {
                 usuarios = new ListaUsuarios(); // Se crea la lista de usuarios
+                usuarios.add(new Usuario("Alemol","1234",false));
                 for (Usuario user : usuarios) {
                     if (nombre.equals(user.getNombre()) && pass.equals(user.getPasswd())) {
                         miSesion.setAttribute("logueado", "true");

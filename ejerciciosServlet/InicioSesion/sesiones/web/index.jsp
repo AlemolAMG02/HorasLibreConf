@@ -14,7 +14,7 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h1>Hola Mundo</h1>
         <%
             String formu = "formulario.jsp";
             Usuario userIni = (Usuario) session.getAttribute("userIni");
@@ -25,16 +25,14 @@
             if(session.isNew() || logueado == null){
                 response.sendRedirect(formu);
             } else {
-                if(logueado == "true"){
-                    
+                if(logueado == "true"){    
                     if(esAdmin == true){
                         out.println("Eres Admin");
                     %>
-                    
                     <form action="administracion" method="post">
                         <p>Eres el administrador, elige una opción:</p>
                         <input type="submit" name="addUser" value="Añadir Usuario">
-                        <input type="submit" name="cerrarSesion" value="Cerrar Sesión">
+                        <input type="submit" name="cerrarSesion" value="Cerrar Sesion">
                     </form>
                     
                 <%    
