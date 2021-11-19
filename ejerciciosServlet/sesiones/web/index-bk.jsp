@@ -14,25 +14,27 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hola Mundo</h1>
+        <h1>Hello World!</h1>
         <%
-            String formu = "formulario.jsp";
-            Usuario userIni = (Usuario) session.getAttribute("userIni");
             String logueado =(String)session.getAttribute("logueado");  //La primera vez dará null, las siguientes si existirá
+            String formu = "formulario.jsp";
             //ListaUsuarios listUsu = (ListaUsuarios) session.getAttribute("usuarios");   
+            //Usuario userIni = (Usuario) session.getAttribute("userIni");
             Boolean esAdmin = (Boolean) session.getAttribute("esAdmin");
             
             if(session.isNew() || logueado == null){
                 response.sendRedirect(formu);
             } else {
-                if(logueado == "true"){    
-                    if(esAdmin == true){
+                if(logueado){
+                    
+                    if(logueado == true){
                         out.println("Eres Admin");
                     %>
+                    
                     <form action="administracion" method="post">
                         <p>Eres el administrador, elige una opción:</p>
                         <input type="submit" name="addUser" value="Añadir Usuario">
-                        <input type="submit" name="cerrarSesion" value="Cerrar Sesion">
+                        <input type="submit" name="cerrarSesion" value="Cerrar Sesión">
                     </form>
                     
                 <%    

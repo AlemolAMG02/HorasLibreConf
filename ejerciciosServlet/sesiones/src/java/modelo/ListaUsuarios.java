@@ -10,27 +10,27 @@ import java.util.ArrayList;
  *
  * @author alemol
  */
-public class ListaUsuarios extends ArrayList<Usuario>{
-    //private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
+public class ListaUsuarios extends ArrayList<Usuario> {
+    // private ArrayList<Usuario> usuarios = new ArrayList<Usuario>();
 
     public ListaUsuarios() {
         super();
         this.add(new Usuario());
+        this.add(new Usuario("Alemol", "1234"));
     }
-    
-    public ListaUsuarios(ArrayList<Usuario> lista){
+
+    public ListaUsuarios(ArrayList<Usuario> lista) {
         super();
         boolean admin = false;
         for (Usuario user : lista) {
             this.add(user);
-            if(user.getNombre() == new Usuario().getNombre())
-                if(user.getPasswd() == new Usuario().getPasswd())
+            if (user.getNombre() == new Usuario().getNombre())
+                if (user.getPasswd() == new Usuario().getPasswd())
                     admin = true;
         }
-        if(!admin){
+        if (!admin) {
             this.add(new Usuario());
         }
     }
-    
-    
+
 }
