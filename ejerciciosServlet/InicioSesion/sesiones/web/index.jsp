@@ -25,7 +25,9 @@
             if(session.isNew() || logueado == null){
                 response.sendRedirect(formu);
             } else {
-                if(logueado == "true"){    
+                if(logueado == "true"){ 
+                    /* TODO: Añadir aquí el foro de mensajes */
+                       
                     if(esAdmin == true){
                         out.println("Eres Admin");
                     %>
@@ -56,3 +58,9 @@
         
     </body>
 </html>
+
+<!--
+//  _______        _______ _______  _____
+//  |_____| |      |______ |  |  | |     | |
+//  |     | |_____ |______ |  |  | |_____| |_____
+    -->
