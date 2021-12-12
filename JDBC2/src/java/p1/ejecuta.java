@@ -5,11 +5,13 @@
  */
 package p1;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.Statement;
+import com.mysql.jdbc.Driver;
+//import com.mysql.jdbc;
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
  *
@@ -23,10 +25,10 @@ public class ejecuta {
     
     public ejecuta(String sentenciasql) {
         
-        String url = "jdbc:mysql://localhost:3306/pruebaHLC";
+        String url = "jdbc:mysql://localhost:3306/pruebaHLC?autoReconnect=true&useSSL=false";
         
         try {
- Class.forName("com.mysql.jdbc.Driver");
+ Class.forName("com.mysql.cj.jdbc.Driver");
  // Creamos el objeto conexion
  this.conexion = (Connection) DriverManager.getConnection(url, "ale", "1234");
  // Creamos un objeto Statement

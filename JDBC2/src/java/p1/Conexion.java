@@ -6,8 +6,8 @@ import java.sql.SQLException;
 public class  Conexion {
 
     private static final String CONTROLLER = "com.mysql.cj.jdbc.Driver";
-    private static final String URL = "jdbc:mysql://localhost:3306/futbol?serverTimezone=UTC";
-    private static final String USERNAME = "root";
+    private static final String URL = "jdbc:mysql://localhost:3306/pruebaHLC?serverTimezone=UTC";
+    private static final String USERNAME = "ale";
     private static final String PASSWORD = "1234";
 	private static Connection conexion = null;
 
@@ -21,7 +21,7 @@ public class  Conexion {
             e.printStackTrace();
             
         } catch (SQLException e) {
-            System.out.println("Error en la conexi�n");
+            System.out.println("Error en la conexión");
             e.printStackTrace();
         }
     }
