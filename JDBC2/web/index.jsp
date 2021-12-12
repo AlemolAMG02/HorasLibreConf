@@ -20,8 +20,12 @@
         <title>JSP Page</title>
     </head>
     <body>
-        
-            <div id="principal" class="row">
+        <%
+            if(request.getParameter("mostrar") != null || request.getParameter("aniadir") != null){
+
+            }
+        %>
+    <div id="principal" class="row">
       <div id="aniadirNota" class="col p-3 bg-success">
         <h1>Añadir Nota</h1>
         <form action="" method="post">
@@ -49,7 +53,7 @@
               />
             </div>
           </div>
-          <input type="submit" class="btn btn-light" value="Entrar" />
+          <input type="submit" class="btn btn-light" value="Añadir" name="aniadir" />
         </form>
       </div>
       <div id="mostrar" class="col p-2 bg-primary">
@@ -70,21 +74,39 @@
         
         <% 
             if(request.getParameter("mostrar") != null){
+                out.println("<table class='table table-striped bg-light'>");
+                out.println("<tr><th>Codigo</th><th>Nombre</th><th>Nota</th></tr>");
                 ResultSet rs= new p1.ejecuta("select * from alumnos").getResult();
                 while (rs.next()){
-                    out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getInt(3));
-                    out.println("<BR>");
+                    out.println("<tr>");
+                    out.println("<td>"+rs.getInt(1)+"</td><td>"+rs.getString(2)+"</td><td> "+rs.getInt(3)+"</td>");
+                    out.println("</tr>");
+                    
                 }
             } else 
-                out.println("Nada que mostar");
-            
+                out.println("Boton no pulsado");
+            //rs.close();
             
         %>
         
       </div>
     </div>
     <%   
-      //ResultSet rs = Conexion.getConexion();
+        if(request.getParameter("aniadir") != null){
+            out.println("Entro en el botón añadir");
+            ResultSet rs= new p1.ejecuta("select * from alumnos").getResult();
+            //rs.absolute(0);
+            //rs.moveToInsertRow();
+            //rs.updateString(1, "a4");
+            //rs.updateString(2,"antonio");
+            //rs.updateString("apellidos", "perez");
+            //rs.updateInt("nota", 2);
+            //rs.insertRow();
+        
+        }
+        
+        // Ejemplo Profesor
+      
       /*ResultSet rs= new p1.ejecuta("select * from alumnos").getResult();
       while (rs.next()){
             out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getInt(3));
@@ -110,7 +132,6 @@
         
         
         %>
-    
     
         <h1>Hello World!</h1>
     </body>
