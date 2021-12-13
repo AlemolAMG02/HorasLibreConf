@@ -1,138 +1,1 @@
-<%-- 
-    Document   : index.jsp
-    Created on : 08-ene-2019, 10:49:13
-    Author     : alejandro
---%>
-
-<%@page import="java.sql.ResultSet"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Latest compiled and minified CSS -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-    />
-        <title>JSP Page</title>
-    </head>
-    <body>
-        <%
-            if(request.getParameter("mostrar") != null || request.getParameter("aniadir") != null){
-
-            }
-        %>
-    <div id="principal" class="row">
-      <div id="aniadirNota" class="col p-3 bg-success">
-        <h1>Añadir Nota</h1>
-        <form action="" method="post">
-          <div class="row">
-            <div class="col mb-3 mt-3">
-              <label for="nombreAlumno" class="form-label"
-                >Nombre Alumno:</label
-              >
-              <input
-                type="text"
-                name="nombreAlumno"
-                id="nombreAlumno"
-                placeholder="Nombre del Alumno"
-                class="form-control"
-              />
-            </div>
-            <div class="col mb-3 mt-3">
-              <label for="nota" class="form-label">Nota: </label>
-              <input
-                type="number"
-                name="nota"
-                id="nota"
-                placeholder="Nota entre 1 y 10"
-                class="form-control"
-              />
-            </div>
-          </div>
-          <input type="submit" class="btn btn-light" value="Añadir" name="aniadir" />
-        </form>
-      </div>
-      <div id="mostrar" class="col p-2 bg-primary">
-        <h1>Mostrar</h1>
-        <form action="" method="post">
-          <div class="row">
-            <div class="col mb-3 mt-3 bg">
-              <label for="nombreAlumno" class="form-label"
-                >Nombre Alumno:</label
-              >
-              <select name="alumno" id="alumno" class="form-select">
-                <option value="*">*</option>
-              </select>
-            </div>
-          </div>
-            <input type="submit" class="btn btn-light" value="Mostrar" name="mostrar" />
-        </form>
-        
-        <% 
-            if(request.getParameter("mostrar") != null){
-                out.println("<table class='table table-striped bg-light'>");
-                out.println("<tr><th>Codigo</th><th>Nombre</th><th>Nota</th></tr>");
-                ResultSet rs= new p1.ejecuta("select * from alumnos").getResult();
-                while (rs.next()){
-                    out.println("<tr>");
-                    out.println("<td>"+rs.getInt(1)+"</td><td>"+rs.getString(2)+"</td><td> "+rs.getInt(3)+"</td>");
-                    out.println("</tr>");
-                    
-                }
-            } else 
-                out.println("Boton no pulsado");
-            //rs.close();
-            
-        %>
-        
-      </div>
-    </div>
-    <%   
-        if(request.getParameter("aniadir") != null){
-            out.println("Entro en el botón añadir");
-            ResultSet rs= new p1.ejecuta("select * from alumnos").getResult();
-            //rs.absolute(0);
-            //rs.moveToInsertRow();
-            //rs.updateString(1, "a4");
-            //rs.updateString(2,"antonio");
-            //rs.updateString("apellidos", "perez");
-            //rs.updateInt("nota", 2);
-            //rs.insertRow();
-        
-        }
-        
-        // Ejemplo Profesor
-      
-      /*ResultSet rs= new p1.ejecuta("select * from alumnos").getResult();
-      while (rs.next()){
-            out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getInt(3));
-            out.println("<BR>");
-        }
-      //rs.absolute(3);
-      //rs.deleteRow();
-      */
-      
-       
-       /* 
-        rs.updateString("nombre", "juana");
-        rs.updateRow();
-        
-        
-        
-        rs.moveToInsertRow();
-        rs.updateString(1, "a4");
-        rs.updateString(2,"antonio");
-        rs.updateString("apellidos", "perez");
-        rs.updateInt("nota", 2);
-        rs.insertRow();*/
-        
-        
-        %>
-    
-        <h1>Hello World!</h1>
-    </body>
-</html>
+<%--     Document   : index.jsp    Created on : 08-ene-2019, 10:49:13    Author     : alejandro--%><%@page import="java.sql.ResultSet"%><%@page contentType="text/html" pageEncoding="UTF-8"%><!DOCTYPE html><html>    <head>    <meta charset="UTF-8" />    <meta http-equiv="X-UA-Compatible" content="IE=edge" />    <meta name="viewport" content="width=device-width, initial-scale=1.0" />    <!-- Latest compiled and minified CSS -->    <link      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"      rel="stylesheet"    />        <title>JSP Page</title>    </head>    <body>        <%            if(request.getParameter("mostrar") != null || request.getParameter("aniadir") != null){                //ResultSet rs= new p1.ejecuta("select * from alumnos").getResult();              }        %>    <div id="principal" class="row">      <div id="aniadirNota" class="col p-3 bg-success">        <h1>Añadir Nota</h1>        <form action="" method="post">          <div class="row">            <div class="col mb-3 mt-3">              <label for="nombreAlumno" class="form-label"                >Nombre Alumno:</label              >              <input                type="text"                name="nombreAl"                id="nombreAl"                placeholder="Nombre del Alumno"                class="form-control"              />            </div>            <div class="col mb-3 mt-3">              <label for="nota" class="form-label">Nota: </label>              <input                type="number"                name="nota"                id="nota"                placeholder="Nota entre 1 y 10"                class="form-control"              />            </div>          </div>          <input type="submit" class="btn btn-light" value="Añadir" name="aniadir" />        </form>        <%            if(request.getParameter("aniadir") != null){            if(!request.getParameter("nombreAl").isEmpty() || !request.getParameter("nota").isEmpty()){              String nombre = request.getParameter("nombreAl");              int nota = Integer.parseInt(request.getParameter("nota"));              //out.println("Entro en el botón añadir");              ResultSet rs= new p1.ejecuta("select * from alumnos").getResult();              //rs.absolute(0);              rs.moveToInsertRow();              rs.updateString("nombre", nombre);              rs.updateInt("nota", nota);              rs.insertRow();               out.println("<h2 class='bg-light text-success mt-3'>Nota del alumno introducida correctamente </h2>");            } else {              out.println("<h2 class='text-danger'> ERROR AL LEER DATOS </h2>");            }          }         %>              </div>      <div id="mostrar" class="col p-2 bg-primary">        <h1>Mostrar</h1>        <form action="" method="post">          <div class="row">            <div class="col mb-3 mt-3 bg">              <label for="nombreAlumno" class="form-label"                >Nombre Alumno:</label              >              <select name="alumno" id="alumno" class="form-select">                <option value="*">*</option>              </select>            </div>          </div>            <input type="submit" class="btn btn-light" value="Mostrar" name="mostrar" />        </form>                <%             if(request.getParameter("mostrar") != null){                out.println("<table class='table table-striped bg-light mt-3'>");                out.println("<tr><th>Codigo</th><th>Nombre</th><th>Nota</th></tr>");                ResultSet rs= new p1.ejecuta("select * from alumnos").getResult();                  while (rs.next()){                    out.println("<tr>");                    out.println("<td>"+rs.getInt(1)+"</td><td>"+rs.getString(2)+"</td><td> "+rs.getInt(3)+"</td>");                    out.println("</tr>");                                    }                out.println("</table>");            } else                 out.println("Boton no pulsado");            //rs.close();                                %>              </div>    </div>        <div class="row">                    </div>            <%                           // Ejemplo Profesor            /*ResultSet rs= new p1.ejecuta("select * from alumnos").getResult();      while (rs.next()){            out.println(rs.getInt(1)+" "+rs.getString(2)+" "+rs.getInt(3));            out.println("<BR>");        }      //rs.absolute(3);      //rs.deleteRow();      */                    /*         rs.updateString("nombre", "juana");        rs.updateRow();                                rs.moveToInsertRow();        rs.updateString(1, "a4");        rs.updateString(2,"antonio");        rs.updateString("apellidos", "perez");        rs.updateInt("nota", 2);        rs.insertRow();*/                        %>            <h1>Hello World!</h1>    </body></html>
