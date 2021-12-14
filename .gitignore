@@ -17,3 +17,5 @@ ejerciciosServlet/sesiones/nbproject/private/private.xml
 /JDBC2/build/
 /JDBC2/dist/
 *.DS_Store
+/ejerciciosServlet/webAlmu/webAlmu/nbproject/private/
+/ejerciciosServlet/webAlmu/webAlmu/build/
