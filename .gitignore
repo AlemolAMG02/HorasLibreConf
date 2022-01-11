@@ -19,3 +19,7 @@ ejerciciosServlet/sesiones/nbproject/private/private.xml
 *.DS_Store
 /ejerciciosServlet/webAlmu/webAlmu/nbproject/private/
 /ejerciciosServlet/webAlmu/webAlmu/build/
+/ejerciciosServlet/PlantillaExamen/nbproject/private/
+/ejerciciosServlet/PlantillaExamen/build/
+/HibernateYJPA/nbproject/private/
+/HibernateYJPA/build/
