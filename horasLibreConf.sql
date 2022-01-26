@@ -21,8 +21,8 @@ SET time_zone = "+00:00";
 -- Base de datos: `pruebasHLC`
 --
 
-CREATE DATABASE IF NOT EXISTS pruebaHLC;
-USE pruebaHLC;
+/*CREATE DATABASE IF NOT EXISTS pruebaHLC;
+USE pruebaHLC; */
 -- --------------------------------------------------------
 
 --
