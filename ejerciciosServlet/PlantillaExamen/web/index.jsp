@@ -13,5 +13,6 @@
     </head>
     <body>
         <h1>Hello World!</h1>
+        <a href="./login.jsp"> Ir al Login</a>
     </body>
 </html>

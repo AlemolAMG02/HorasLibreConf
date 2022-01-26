@@ -4,13 +4,18 @@
  */
 package controllers;
 
+import java.sql.ResultSet;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 
 /**
  *
@@ -32,17 +37,32 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         try ( PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet login</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet login at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            out.print("Entra en el servlet");
+            HttpSession miSesion = request.getSession(); // Recuperamos la sesión
+            String nombre = (String) request.getParameter("user");
+            out.println(nombre);
+            String pass = request.getParameter("pass");
+            
+            String sql = "SELECT * FROM usuarios WHERE nombre ='" + nombre + "'";
+            ResultSet rs = new controllers.ejecuta(sql).getResult();
+            rs.next();
+            System.out.println("ID : " + rs.getInt(1) + " , Nombre: " + rs.getString(2));
+
+            if (rs.getString(2).equals(pass)) {
+                miSesion.setAttribute("logueado", "true");
+                miSesion.setAttribute("userIni", nombre);
+                //miSesion.setAttribute("esAdmin",rs.getInt(4));
+            } else {
+                miSesion.setAttribute("logueado", "false");
+            }
+            response.sendRedirect("index.jsp");
+
+        } catch (SQLException | IOException | NumberFormatException e) {
+            System.out.println("Login Error: " + e.getMessage());
+            e.printStackTrace();
+            //out.println("Login Error: " + e.getMessage());
         }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -16,14 +16,25 @@
     </head>
     <body>
         <h1>Ejercicio de prueba</h1>
-        Hola mundo
         
         <!-- No funciona muy bien -->
         <%
-            out.println("<br>Entro en el jsp");
-            List<Persona> lista = new PersonaDAO().listarPersonas();
+            PersonaDAO control = new PersonaDAO();
+            //out.println("<br>He creado dos objetos");
             
-        %>
+            //Persona person = new Persona(20,"Ruben","Apell");
+            //control.insertar(person);
+            
+            List<Persona> lista= control.listarPersonas();
+            out.println("<h2>Listas personas</h2>");
+            for(Persona p :lista){
+                
+                out.println("nombre: "+p.getNombre() + " ,Apellidos: " + p.getApellido() +"<br>");
+                           }
+               
+            
+            
+         %>
         
     </body>
 </html>

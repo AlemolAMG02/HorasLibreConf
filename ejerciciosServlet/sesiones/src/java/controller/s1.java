@@ -7,12 +7,12 @@ package controller;
 import java.io.Console;
 import java.io.IOException;
 import java.io.PrintWriter;
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import jakarta.servlet.http.HttpSession;
 import modelo.ListaUsuarios;
 import modelo.Usuario;
 
@@ -59,7 +59,7 @@ public class s1 extends HttpServlet {
                 // response.sendRedirect("index.jsp");
             } else {
                 usuarios = new ListaUsuarios(); // Se crea la lista de usuarios
-                usuarios.add(new Usuario("Alemol","1234",false));
+                usuarios.add(new Usuario("Alemol", "1234", false));
                 for (Usuario user : usuarios) {
                     if (nombre.equals(user.getNombre()) && pass.equals(user.getPasswd())) {
                         miSesion.setAttribute("logueado", "true");

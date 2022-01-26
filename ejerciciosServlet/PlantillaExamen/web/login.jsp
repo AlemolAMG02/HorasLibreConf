@@ -13,31 +13,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <!-- Latest compiled and minified CSS -->
         <link
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
-          rel="stylesheet"
-        />
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            />
         <title>Login Examen</title>
     </head>
     <body>
-        <div id="principal">
-            <form action="/action_page.php">
-  <div class="mb-3 mt-3">
-    <label for="email" class="form-label">Email:</label>
-    <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
-  </div>
-  <div class="mb-3">
-    <label for="pwd" class="form-label">Password:</label>
-    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-  </div>
-  <div class="form-check mb-3">
-    <label class="form-check-label">
-      <input class="form-check-input" type="checkbox" name="remember"> Remember me
-    </label>
-  </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-        <h1>Hello World!</h1>
+        <div id="principal" class="row d-flex justify-content-center">
+            <div class="col-6 border m-2 p-3">
+                <h1 class="text-center">Login Examen</h1>
+                <form action="login" method="post">
+                    <div class="mb-3 mt-3">
+                        <label for="user" class="form-label">Usuario:</label>
+                        <input type="text" class="form-control" id="user" placeholder="Nombre de usuario" name="user">
+                    </div>
+                    <div class="mb-3">
+                        <label for="pass" class="form-label">Contraseña:</label>
+                        <input type="password" class="form-control" id="pass" placeholder="Contraseña" name="pass">
+                    </div>
+                    <input type="submit" class="btn btn-primary" value="Entrar">
+                    <input type="hidden" id="id" name="name" value="value">
+                </form>
+            </div>
         </div>
-        
+
     </body>
 </html>

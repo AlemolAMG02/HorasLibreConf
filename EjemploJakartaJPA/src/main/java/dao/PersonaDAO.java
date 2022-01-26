@@ -6,6 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 import jakarta.persistence.Query;
+//import jakarta.persistence.*;
 
 import Entidad.Persona;
 
@@ -36,7 +37,9 @@ public class PersonaDAO {
         String hql = "SELECT p FROM Persona p";
         em = getEntityManager();
         Query query = em.createQuery(hql);
-        return query.getResultList();
+        List<Persona> personas = query.getResultList();
+        em.close();
+        return personas;
     }
 
     public void insertar(Persona persona) {
@@ -98,7 +101,9 @@ public class PersonaDAO {
 
     public Persona buscarPorId(Persona p) {
         em = getEntityManager();
-        return em.find(Persona.class, p.getIdPersona());
+        Persona person =  em.find(Persona.class, p.getIdPersona());
+        em.close();
+        return person;
     }
 
     private EntityManager getEntityManager() {

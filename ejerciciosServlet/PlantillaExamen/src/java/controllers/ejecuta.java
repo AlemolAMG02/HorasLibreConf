@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package p1;
+package controllers;
 
 import com.mysql.jdbc.Driver;
 //import com.mysql.jdbc;
@@ -25,7 +25,7 @@ public class ejecuta {
 
     public ejecuta(String sentenciasql) {
 
-        String url = "jdbc:mysql://localhost:3306/pruebaHLC?autoReconnect=true&useSSL=false";
+        String url = "jdbc:mysql://localhost:3306/horasLibreConf?autoReconnect=true&useSSL=false";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -41,6 +41,8 @@ public class ejecuta {
 
         } catch (ClassNotFoundException | SQLException e) {
         }
+        
+        
 
     }
 
