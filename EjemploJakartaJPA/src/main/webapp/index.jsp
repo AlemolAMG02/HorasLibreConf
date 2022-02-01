@@ -21,15 +21,15 @@
     </head>
     <body>
 
-        <div id="principal" class="row bg-danger py-2">
+        <div id="principal" class="row m-1 py-2">
             <h1>Ejercicio de prueba</h1>
-            <div class="col" id="columnaLista">
-                <table class="table">
-                    <th>
-                    <tr>ID</tr>
-                    <tr>Nombre</tr>
-                    <tr>Apellido</tr>
-                    </th>
+            <div class="col bg-success" id="columnaLista">
+                <table class="table table-hover me-1">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Apellido</th>
+                    </tr>
                     <% 
                         PersonaDAO control = new PersonaDAO();
                         
@@ -39,22 +39,38 @@
                         for(Persona p :lista){
                             out.println("<tr>");
                             //out.println("nombre: "+p.getNombre() + " ,Apellidos: " + p.getApellido() +"<br>");
-                            out.println("<td> </td><td>nombre: "+p.getNombre() + " </td><td>Apellidos: " + p.getApellido() +"</td>");
+                            out.println("<td>"+ p.getIdPersona() + "</td><td>"+p.getNombre() + " </td><td>" + p.getApellido() +"</td>");
                             out.println("</tr>");
                         }
                     %>
-                    <td></td>
                 </table>    
 
             </div>
 
+            <div class="col bg-warning" id="columnaForm">
+                <h2>Añadir Alumno</h2>
+                <div id="divForm">
+                    <form class="form-control">
+                        <div class="mb-1 mt-1">
+                            <label for="nombre" class="form-label">Nombre:</label>
+                            <input type="email" class="form-control" id="nombre" placeholder="Nombre del Alumno" name="nombre">
+                        </div>
+                        <div class="mb-1">
+                            <label for="pwd" class="form-label">Password:</label>
+                            <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
+                        </div>
+                        <div class="form-check mb-1">
+                            <label class="form-check-label">
+                                <input class="form-check-input" type="checkbox" name="remember"> Remember me
+                            </label>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+
 
         </div>
-
-        <!-- No funciona muy bien -->
-        <%            
-            
-        %>
 
     </body>
 </html>

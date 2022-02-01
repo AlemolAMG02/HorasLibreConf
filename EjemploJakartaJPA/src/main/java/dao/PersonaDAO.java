@@ -30,6 +30,7 @@ public class PersonaDAO {
         for (Persona p : list) {
             System.out.println(p);
         }
+        em.close();
     }
 
     public List<Persona> listarPersonas() {
