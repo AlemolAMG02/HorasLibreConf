@@ -25,7 +25,7 @@ public class ejecuta {
 
     public ejecuta(String sentenciasql) {
 
-        String url = "jdbc:mysql://localhost:3306/pruebaHLC?autoReconnect=true&useSSL=false";
+        String url = "jdbc:mysql://localhost:3306/horasLibreConf?autoReconnect=true&useSSL=false";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
